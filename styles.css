@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
 /*MEYER RESET START*/
 html,
 body,
@@ -129,6 +131,74 @@ table {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background: #cac;
+  height: 100vh;
+  font-family: "Roboto", Helvetica, sans-serif;
 }
+
+/*SIDEBAR START*/
+#sidebar {
+  background: #1992d4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 360px;
+  height: 100%;
+}
+
+.sidebar-items-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar-item-container-sm,
+.sidebar-item-container-lg {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0 10px 48px;
+}
+
+.sidebar-item-container-sm {
+  gap: 20px;
+}
+
+.sidebar-item-container-lg {
+  gap: 10px;
+}
+
+.sidebar-item-container-sm img,
+.sidebar-item-container-lg img {
+  filter: invert(1);
+}
+
+.sidebar-item-container-sm span,
+.sidebar-item-container-lg span {
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar-item-container-sm img {
+  height: 25px;
+}
+
+.sidebar-item-container-lg img {
+  height: 45px;
+}
+
+.sidebar-item-container-sm span {
+  font-size: 20px;
+}
+
+.sidebar-item-container-lg span {
+  font-size: 28px;
+}
+/*SIDEBAR END*/

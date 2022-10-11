@@ -139,6 +139,12 @@ body {
   background: #cac;
   height: 100vh;
   font-family: "Roboto", Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: 200px 1fr;
+  grid-template-areas:
+    "sidebar head"
+    "sidebar body";
 }
 
 /*SIDEBAR START*/
@@ -148,8 +154,9 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  width: 360px;
-  height: 100%;
+  grid-area: sidebar;
+  z-index: 20;
+  box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.534);
 }
 
 .sidebar-items-container {
@@ -202,3 +209,19 @@ body {
   font-size: 28px;
 }
 /*SIDEBAR END*/
+
+/*HEAD START*/
+#head {
+  grid-area: head;
+  background: rgb(148, 106, 96);
+  z-index: 10;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.219);
+}
+/*HEAD END*/
+
+/*BODY START*/
+#body {
+  grid-area: body;
+  background: rgb(96, 148, 103);
+}
+/*BODY END*/

@@ -141,15 +141,22 @@ body {
   font-family: "Roboto", Helvetica, sans-serif;
   display: grid;
   grid-template-columns: 320px 1fr;
-  grid-template-rows: 200px 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     "sidebar head"
     "sidebar body";
 }
 
+:root {
+  --sidebar-background: #1992d4;
+  --sidebar-color: #fff;
+  --head-background: #fff;
+  --head-input-background: #e2e8f0;
+}
+
 /*SIDEBAR START*/
 #sidebar {
-  background: #1992d4;
+  background: var(--sidebar-background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -189,7 +196,7 @@ body {
 
 .sidebar-item-container-sm span,
 .sidebar-item-container-lg span {
-  color: white;
+  color: var(--sidebar-color);
   font-weight: 500;
 }
 
@@ -213,10 +220,133 @@ body {
 /*HEAD START*/
 #head {
   grid-area: head;
-  background: rgb(148, 106, 96);
+  background: var(--head-background);
   z-index: 10;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.219);
+  display: flex;
+  flex-direction: column;
+  padding: 25px 50px;
+  gap: 35px;
 }
+
+.head-top {
+  display: flex;
+  align-items: center;
+}
+
+.searchbar-container {
+  display: flex;
+  gap: 35px;
+  flex: 0 0 50%;
+}
+
+.searchbar-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-container input {
+  border: none;
+  height: 36px;
+  font-size: 18px;
+  width: 100%;
+  background: var(--head-input-background);
+}
+
+.input-container::before,
+.input-container::after {
+  content: "";
+  width: 25px;
+  height: 36px;
+  background: var(--head-input-background);
+  position: absolute;
+}
+
+.input-container::before {
+  transform: translateX(-100%);
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+
+.input-container::after {
+  right: 0;
+  transform: translateX(100%);
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+.searchbar-container input::before {
+  content: "";
+  height: 100%;
+  width: 30px;
+}
+
+.searchbar-container button img {
+  height: 28px;
+}
+
+.user-info {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+}
+
+.user-info span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.bell-icon {
+  height: 28px;
+}
+
+.user-pfp {
+  border-radius: 100%;
+}
+
+.head-bottom {
+  display: flex;
+}
+
+.user-welcome {
+  display: flex;
+  gap: 22px;
+}
+
+.user-pfp {
+  grid-area: pfp;
+}
+
+.welcome-msg {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.welcome-msg-top {
+  font-size: 15px;
+}
+
+.welcome-msg-bottom {
+  font-size: 22px;
+}
+
+.head-buttons {
+}
+
 /*HEAD END*/
 
 /*BODY START*/

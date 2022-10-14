@@ -144,7 +144,7 @@ a {
 
 body {
   background: #cac;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Roboto", Helvetica, sans-serif;
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -163,6 +163,10 @@ body {
   --head-input-background: #e2e8f0;
   --head-buttons-background: var(--sidebar-background);
   --head-buttons-text: var(--sidebar-text);
+  --body-section-background: var(--head-input-background);
+  --project-background: var(--head-background);
+  --project-edge-line: #f0b42b;
+  --project-p-color: #6c6c6c;
 }
 
 /*SIDEBAR START*/
@@ -260,7 +264,6 @@ body {
   border: none;
 }
 
-
 .searchbar-container input {
   border: none;
   height: 36px;
@@ -352,20 +355,20 @@ body {
   height: 100%;
   width: 100%;
   grid-area: body;
-  background: rgb(96, 148, 103);
   display: grid;
   grid-template-columns: 6fr 3fr;
   grid-template-rows: 6fr 5fr;
   grid-template-areas:
     "projects announcements"
     "projects trending";
-  gap: 1.5em;
-  padding: 1.5em;
+  gap: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  background: var(--body-section-background);
 }
 
 .body-section-header {
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   text-transform: capitalize;
   flex: 0 0 auto;
 }
@@ -374,19 +377,64 @@ body {
   grid-area: projects;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.25rem;
 }
 
 .projects-container {
   flex: 1 1 auto;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.5em;
+  gap: 2.5rem;
 }
 
 .project {
-  background: blue;
+  background: var(--project-background);
+  height: 300px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 3rem 2.2rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.15);
+}
+
+.project h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.project p {
+  font-size: 1.2rem;
+  color: var(--project-p-color);
+  font-weight: 400;
+  margin: 0.6rem 0 0 0;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3%;
+  background: var(--project-edge-line);
+}
+
+.project-icons {
+  display: flex;
+  justify-self: flex-end;
+  gap: 1.65rem;
+}
+
+.project-icons button {
+  background: transparent;
+  border: none;
+}
+
+.project-icons img {
+  height: 30px;
 }
 
 .announcements-section {
